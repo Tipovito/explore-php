@@ -15,7 +15,7 @@ const monstraData = ()=> {
   let mes = dataAtual.getMonth() + 1
   let ano = dataAtual.getFullYear()
   let hora = dataAtual.getHours()
-  let valor = dia +'/'+ mes + '/' + ano + ' - ' + hora
+  let valor = dia +'/'+ mes + '/' + ano 
 
   document.getElementById('dt-cadastro').value = valor
 }
@@ -72,7 +72,11 @@ const rolagem = ()=> {
 
 
 /* //////////// EVENTOS E EXECUÇÕES AUTOMÁTICAS  /////////// */
-
+const urlParams = new URLSearchParams(window.location.search);
+const parametro = urlParams.get('cad');
+if(parametro == 'ok'){
+  alert('USUÁRIO CADASTRADO COM SUCESSO! CADASTRE OUTRO.')
+}
 
 
 getEstados()
@@ -80,13 +84,13 @@ getEstados()
 mostraIdade()
 document.getElementById('idade').addEventListener('change', mostraIdade)
 
-monstraData()
+mostraData()
 
 //Inicializa animações scroll do AOS
 AOS.init();
 
 // Impede o envio do formulário quando os campos estão inválidos
-( ()=> {
+/* ( ()=> {
     'use strict'
   
     //váriavel captura as tags <form> que contém a classe "needs-validation"
@@ -105,7 +109,7 @@ AOS.init();
           form.classList.add('was-validated')
         }, false)
       })
-  })()
+  })() */
 
 
 document.getElementById('estado').addEventListener('change', function(){
